@@ -1,12 +1,12 @@
 version: '3.9'
 services:
-    # Utils
-    utils:
-        container_name: utils
+    # demo
+    demo42:
+        container_name: demo42
         build:
             context: .
             dockerfile: Dockerfile
-        image: utils:1.0
+        image: demo42:1.0
         volumes:
           - .:/home/app
           - /home/app/node_modules
