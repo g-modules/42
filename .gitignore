@@ -1,0 +1,9 @@
+/coverage
+/node_modules
+/.jest-cache
+*.log
+.vscode
+.cache
+.eslintcache
+Icon?
+.DS_Store

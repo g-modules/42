@@ -1,0 +1,36 @@
+{
+	"name": "@g-modules/42",
+	"version": "1.0.0",
+	"description": "Demo package",
+	"author": "Constantine Gololobov <hello@gololobov.dev> (https://gololobov.dev)",
+	"license": "MIT",
+	"homepage": "https://github.com/g-modules/42",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/g-modules/42.git"
+	},
+	"keywords": [
+		"demo"
+	],
+	"bugs": {
+		"url": "https://github.com/g-modules/42/issues"
+	},
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"test": "jest",
+		"lint": "eslint '**/*.js'",
+		"lint:fix": "eslint '**/*.js' --fix"
+	},
+	"devDependencies": {
+		"@g-modules/eslint-config": "latest",
+		"@babel/core": "7.15.0",
+		"@babel/node": "7.14.9",
+		"@babel/preset-env": "7.15.0",
+		"eslint": "7.32.0",
+		"jest": "27.0.6",
+		"jest-extended": "0.11.5",
+		"nodemon": "2.0.12"
+	}
+}
