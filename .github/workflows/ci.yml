@@ -3,13 +3,8 @@ name: CI
 on: [pull_request]
 
 jobs:
-  greeting:
+  test:
     runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
-    steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        pr-message: 'Message that will be displayed on users first pull request'
