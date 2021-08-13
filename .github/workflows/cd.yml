@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: use Node.js
-        uses: actions/setup-node@v2
-      - name: install
-        run: npm install
-      - name: Release
-        run: npx semantic-release
-        if: github.ref == 'refs/heads/main' && github.repository == 'REPO_OWNER/REPO_NAME'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: use Node.js
+      #   uses: actions/setup-node@v2
+      # - name: install
+      #   run: npm install
+      # - name: Release
+      #   run: npx semantic-release
+      #   if: github.ref == 'refs/heads/main' && github.repository == 'REPO_OWNER/REPO_NAME'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
