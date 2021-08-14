@@ -17,7 +17,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_WORKFLOW} - ${process.env.AS_REPO}\n${process.env.AS_REF} ${{ job.status }} in ${process.env.AS_TOOK}`,
+                text: `${process.env.AS_WORKFLOW} - ${process.env.AS_REPO}\n${process.env.AS_REF} ${{ job.status }} in ${process.env.AS_TOOK}'n${{ github.ref }}`,
               }]
             }
         env:
