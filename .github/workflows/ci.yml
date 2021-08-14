@@ -12,15 +12,8 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: custom
-          icon_emoji: ':octocat:'
           fields: workflow,job,commit,repo,ref,author,took
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_WORKFLOW} - ${process.env.AS_REPO}\n${process.env.AS_REF} ${{ job.status }} in ${process.env.AS_TOOK}`,
-              }]
-            }
+          
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
