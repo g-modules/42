@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ dev ]
 jobs:
-  Explore-GitHub-Actions:
+  tests:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "Test"
