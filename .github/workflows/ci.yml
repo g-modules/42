@@ -13,7 +13,17 @@ jobs:
         with:
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
-          
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `${process.env.AS_WORKFLOW} - ${process.env.AS_REPO}\n${process.env.AS_REF} ${{ job.status }} in ${process.env.AS_TOOK}`,
+              },{
+              title: 'long title1',
+              value: 'long value1',
+              short: false
+            }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
