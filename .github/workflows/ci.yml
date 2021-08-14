@@ -38,7 +38,7 @@ jobs:
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
                 title: `CI - ${{ job.status }}`,
-                text: `${process.env.AS_REPO}@${process.env.AS_REF} ${{ job.status }} in ${process.env.AS_TOOK}`,
+                text: `${process.env.AS_REPO}@${process.env.AS_REF}`,
               }]
             }
         env:
