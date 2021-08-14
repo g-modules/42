@@ -1,9 +1,46 @@
 name: CI
 on:
+  push:
+    branches: [feature/*]
   pull_request:
     branches: [ dev ]
 jobs:
-  Explore-GitHub-Actions:
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+      - name: Checkout
+        uses: actions/checkout@v2
+  
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Lint code
+        run: npm run lint
+      
+      - name: Unit test
+        run: npm run test
+
+      - name: Slack Notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                title: `CI - ${{github.event_name}} ${{ job.status }}`,
+                text: `${process.env.AS_REPO}@${process.env.AS_REF}`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
