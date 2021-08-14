@@ -8,7 +8,6 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Slack Notification
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
