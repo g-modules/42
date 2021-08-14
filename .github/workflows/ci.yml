@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
+          # status: ${{ job.status }}
+          status: OK
           fields: repo, message, ref, workflow
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
