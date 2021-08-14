@@ -38,7 +38,6 @@ jobs:
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
                 title: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                # title: `${{ job.status }}' === 'success' ? '✅' : '⛔️' CI - ${{github.event_name}} ${{ job.status }}`,
                 text: `${process.env.AS_REPO}@${process.env.AS_REF}`,
               }]
             }
