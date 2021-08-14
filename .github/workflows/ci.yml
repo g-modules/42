@@ -8,6 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Slack Notification
       - uses: 8398a7/action-slack@v3
         with:
           status: custom
@@ -22,4 +23,4 @@ jobs:
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
+        if: ${{ failure() }}
