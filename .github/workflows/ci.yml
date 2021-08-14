@@ -1,6 +1,7 @@
 name: CI
 on:
-  push: [feature/*]
+  push:
+    branches: [feature/*]
   pull_request:
     branches: [ dev ]
 jobs:
