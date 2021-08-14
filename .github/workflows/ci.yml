@@ -38,10 +38,9 @@ jobs:
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
                 title: `CI - ${{ job.status }}`,
-                text: `${process.env.AS_REPO}@${process.env.AS_REF} - ${{env.event}}`,
+                text: `${process.env.AS_REPO}@${process.env.AS_REF} - ${{github.event_name}}`,
               }]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          event: ${{GITHUB_EVENT_NAME}}
         if: always()
